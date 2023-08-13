@@ -1,23 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom'
+import Navbar from './components/Navbar';
+import Homepage from './components/Homepage';
+import RepairOrders from './components/repairorders/RepairOrders';
+import RepairOrderId from './components/repairorders/RepairOrderId';
+import Cars from './components/cars/Cars'
+import CarId from './components/cars/CarId'
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+
+      <Routes>
+        <Route path='/' element={<Homepage />} />
+
+        <Route path='/cars' element={<Cars />} >
+          <Route path=':carId' element={<CarId />} />
+        </Route>
+
+        <Route path='/repair-orders' element={<RepairOrders />} >
+          <Route path=':repairOrderId' element={<RepairOrderId />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
