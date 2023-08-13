@@ -1,5 +1,5 @@
 # TruTrack 
-<h3>Summary: Mock automotive dealer management system software designed to help track vehicle repairs</h3>
+Summary: Mock automotive dealer management system software designed to help track vehicle repairs
 
 # Getting Started with Create React App
 
