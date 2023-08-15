@@ -1,0 +1,40 @@
+{
+    "car-inventory": [
+        {
+            "id": 1,
+            "year": "2018",
+            "make": "BMW",
+            "model": "M3",
+            "mileage": "18,564",
+            "vin": "1HCG6FH3331",
+            "customerName": "Samara Grant",
+            "customerContact": "347-555-5555",
+            "roNumber": "100",
+            "roDescription": "Customer states: intermittent whistling sound coming from bonnet. Only after vehicle is warm and @ idle."
+        },
+        {
+            "id": 2,
+            "year": "2013",
+            "make": "BMW",
+            "model": "M3",
+            "mileage": "75,102",
+            "vin": "1HCG6FH3331",
+            "customerName": "Adam Jingleheimer",
+            "customerContact": "718-555-5555",
+            "roNumber": "101",
+            "roDescription": "Customer states: smell of syrup coming from air vents while a/c is running."
+        },
+        {
+            "id": 3,
+            "year": "2023",
+            "make": "BMW",
+            "model": "M340",
+            "mileage": "12,091",
+            "vin": "1HCG6FH3331",
+            "customerName": "Carmelo Anthony",
+            "customerContact": "347-555-5555",
+            "roNumber": "102",
+            "roDescription": "Customer states: CEL on, no flash"
+        }
+    ]
+}
