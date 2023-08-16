@@ -34,3 +34,33 @@
     transform: rotate(360deg);
   }
 }
+
+.brand-logo {
+  height: 28px;
+  width: 100%;
+  padding-left: 20px;
+}
+
+#sidebarMenu {
+  background-color: rgb(229, 228, 228);
+}
+
+.card {
+  text-decoration: none;
+}
+
+.sidebar {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.nav-item, svg {
+  padding-right: 1px;
+}
+
+.sbni {
+  padding: 10px;
+}
+
+
+
