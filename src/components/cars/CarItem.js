@@ -22,14 +22,14 @@ const CarItem = () => {
     
     return (
         <div className="carItemPage">
-            <div class="container mt-4 pb-auto">
+            <div class="container mt-3 pb-auto">
               
-            <h2>Vehicle History</h2>
+            <h2 class="mb-3">Vehicle History</h2>
     
             <div class="row gutters-sm">
                        
         {/* // Vehicle Profile Stats // */}
-                <div class="col-md-4 mb-3">
+                <div class="profile-stats col-md-4 mb-3">
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center">
@@ -121,28 +121,29 @@ const CarItem = () => {
                         <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">RO#{roNumber}</h5>
-                                <small>3 days ago</small>
+                                <small className="text-muted">/ 3 days ago</small>
                             </div>
-                            <p class="col-sm-9 mb-1 ps-5">Some placeholder content in a paragraph.</p>
-                            <small class="ps-5">And some small print.</small>
+                            <p class="col-sm-8 ms-5 mb-1 ps-5 text-muted">{roDescription}</p>
                         </a>
+                    </div>
 
-                        <a href="#" class="list-group-item list-group-item-action">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                             <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">RO#{roNumber}</h5>
-                            <small class="text-muted">3 days ago</small>
+                                <h5 class="mb-1">RO#{roNumber}</h5>
+                                <small className="text-muted">/ 3 days ago</small>
                             </div>
-                            <p class="mb-1">Some placeholder content in a paragraph.</p>
-                            <small class="text-muted">And some muted small print.</small>
+                            <p class="col-sm-8 ms-5 mb-1 ps-5 text-muted">{roDescription}</p>
                         </a>
+                    </div>
 
-                        <a href="#" class="list-group-item list-group-item-action">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                             <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1">RO#{roNumber}</h5>
-                            <small class="text-muted">3 days ago</small>
+                                <h5 class="mb-1">RO#{roNumber}</h5>
+                                <small className="text-muted">/ 3 days ago</small>
                             </div>
-                            <p class="mb-1">Some placeholder content in a paragraph.</p>
-                            <small class="text-muted">And some muted small print.</small>
+                            <p class="col-sm-8 ms-5 mb-1 ps-5 text-muted">{roDescription}</p>
                         </a>
                     </div>
                 </div>
