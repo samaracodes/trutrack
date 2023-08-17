@@ -4,10 +4,9 @@ import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Cars from './components/cars/Cars'
-import CarId from './components/cars/CarId'
+import CarItem from './components/cars/CarItem'
 import RepairOrders from './components/repairorders/RepairOrders';
 import RepairOrderId from './components/repairorders/RepairOrderId';
-
 
 
 function App() {
@@ -17,13 +16,10 @@ function App() {
   useEffect(() => {
     fetch("http://localhost:3001/car-inventory")
     .then((response) => response.json())
-    .then((cars) => setCars(cars))
-  }, [])
-
-  useEffect(() => {
-    fetch("http://localhost:3001/car-inventory")
-    .then((response) => response.json())
-    .then((rO) => setRepairOrders(rO))
+    .then((info) => {
+      setCars(info)
+      setRepairOrders(info)
+    })
   }, [])
 
   return (
@@ -34,8 +30,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
 
         <Route path="/cars" element={<Cars carInventory={cars}/>} />
-        <Route path="/cars/:id" element={<CarId />} />
-
+        <Route path="/cars/:id" element={<CarItem />} />
+        
         <Route path="/repair-orders" element={<RepairOrders repairOrders={repairOrders}/>} />
         <Route path="/repair-orders/:id" element={<RepairOrderId />} />
         
