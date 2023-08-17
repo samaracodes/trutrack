@@ -1,6 +1,8 @@
-Progress Checklist
+To Do/Progress Checklist
 
 ** 08/16 **
+-----------------------------------------------
+
 [] - add search bar to car item page
 [] - add post, patch, delete method functionality
 [] - add warranty coverage section to car item page
