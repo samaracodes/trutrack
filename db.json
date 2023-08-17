@@ -4,13 +4,16 @@
             "id": 1,
             "year": "2018",
             "make": "BMW",
-            "model": "M3",
+            "model": "M4",
             "mileage": "18,564",
-            "vin": "1HCG6FH3331",
+            "vin": "WBS3R9C50FK331665",
             "customerName": "Samara Grant",
             "customerContact": "347-555-5555",
             "roNumber": "100",
-            "roDescription": "Customer states: intermittent whistling sound coming from bonnet. Only after vehicle is warm and @ idle."
+            "roDescription": "Customer states: intermittent whistling sound coming from bonnet. Only after vehicle is warm and @ idle.",
+            "plateNumber": "M4DEULK", 
+            "transmission": "DCT"
+
         },
         {
             "id": 2,
@@ -18,11 +21,13 @@
             "make": "BMW",
             "model": "M3",
             "mileage": "75,102",
-            "vin": "1HCG6FH3331",
+            "vin": "WBS8M9C5XG5G41782",
             "customerName": "Adam Jingleheimer",
             "customerContact": "718-555-5555",
             "roNumber": "101",
-            "roDescription": "Customer states: smell of syrup coming from air vents while a/c is running."
+            "roDescription": "Customer states: smell of syrup coming from air vents while a/c is running.",
+            "plateNumber": "HEB3849",
+            "transmission": "DCT"
         },
         {
             "id": 3,
@@ -30,11 +35,41 @@
             "make": "BMW",
             "model": "M340",
             "mileage": "12,091",
-            "vin": "1HCG6FH3331",
+            "vin": "WBS3C9C58FP804720",
             "customerName": "Carmelo Anthony",
             "customerContact": "347-555-5555",
             "roNumber": "102",
-            "roDescription": "Customer states: CEL on, no flash"
+            "roDescription": "Customer states: CEL on, no flash",
+            "plateNumber": "JKP3947",
+            "transmission": "DCT"
+        },
+        {
+            "id": 4,
+            "year": "2016",
+            "make": "BMW",
+            "model": "M3",
+            "mileage": "45,283",
+            "vin": "1HCG6FH3331",
+            "customerName": "Cameron Matias",
+            "customerContact": "347-555-5555",
+            "roNumber": "103",
+            "roDescription": "Customer states: CEL on, no flash",
+            "plateNumber": "REVM3",
+            "transmission": "Manual"
+        },
+        {
+            "id": 5,
+            "year": "2022",
+            "make": "BMW",
+            "model": "M5",
+            "mileage": "2,834",
+            "vin": "1HCG6FH3331",
+            "customerName": "Tabitha Smith",
+            "customerContact": "347-555-5555",
+            "roNumber": "104",
+            "roDescription": "Customer states: CEL on, no flash",
+            "plateNumber": "JES7495",
+            "transmission": "Manual"
         }
     ]
 }
