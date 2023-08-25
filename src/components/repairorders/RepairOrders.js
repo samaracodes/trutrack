@@ -28,7 +28,14 @@ const RepairOrders = ({ repairOrders }) => {
                                 </ul>
                             </div>
                             <div>
-                                <a href="#" data-bs-toggle="modal" data-bs-target=".add-new" class="btn btn-primary"><i class="bx bx-plus me-1"></i> Add New</a>
+                                <Link to="/repair-orders/new">
+                                    <button type="button" class="btn btn-primary">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill me-2" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"></path>
+                                        </svg>
+                                        New RO
+                                    </button>
+                                </Link>
                             </div>
                             
                         </div>
@@ -63,33 +70,35 @@ const RepairOrders = ({ repairOrders }) => {
                                                 <td><p class="mb-0">{ro.technician}</p></td>
                                                 <td>
                                                     <ul class="list-inline mb-0">
-                                                        <li class="list-inline-item">
-                                                            <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" class="px-2 text-primary"><i class="bx bx-pencil font-size-18"></i></a>
-                                                        </li>
-                                                        <li class="list-inline-item">
-                                                            <a  data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="px-2 text-danger"><i class="bx bx-trash-alt font-size-18"></i></a>
-                                                        </li>
 
-                                                        <button type="button" class="btn btn-outline-primary">
+                                                    <Link to={`/repair-orders/${ro.id}`}>
+                                                        <button type="button" class="btn btn-outline-secondary">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
+                                                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"></path>
+                                                        </svg>
+                                                        <span class="visually-hidden">View Button</span>
+                                                        </button>
+                                                    </Link>
+
+                                                    <Link to={`/repair-orders/${ro.id}/edit`}>
+                                                        <button type="button" class="btn btn-outline-primary ms-2">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                                                                 <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"></path>
                                                             </svg>
-                                                            <span class="visually-hidden">Button</span>
+                                                            <span class="visually-hidden">Edit Button</span>
                                                         </button>
+                                                    </Link>
 
+                                                    <Link to={`/repair-orders/${ro.id}/delete`}>
                                                         <button type="button" class="btn btn-outline-danger ms-2">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"></path>
                                                             </svg>
-                                                            <span class="visually-hidden">Button</span>
+                                                            <span class="visually-hidden">Delete Button</span>
                                                         </button>
-                                                        
-                                                        <li class="list-inline-item dropdown">
-                                                            <a class="text-muted dropdown-toggle font-size-18 px-2" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true"><i class="bx bx-dots-vertical-rounded"></i></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <a class="dropdown-item" href="#">Action</a><a class="dropdown-item" href="#">Another action</a><a class="dropdown-item" href="#">Something else here</a>
-                                                            </div>
-                                                        </li>
+                                                    </Link>
+                                                    
                                                     </ul>
                                                 </td>
                                             </tr>
