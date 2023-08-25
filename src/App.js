@@ -5,8 +5,10 @@ import Navbar from './components/Navbar';
 import Homepage from './components/Homepage';
 import Cars from './components/cars/Cars'
 import CarItem from './components/cars/CarItem'
+import CarForm from './components/cars/CarForm';
 import RepairOrders from './components/repairorders/RepairOrders';
 import RepairOrderId from './components/repairorders/RepairOrderId';
+import RepairOrderForm from './components/repairorders/RepairOrderForm';
 
 
 function App() {
@@ -18,6 +20,13 @@ function App() {
     .then((response) => response.json())
     .then((info) => {
       setCars(info)
+    })
+  }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:3001/repair-orders")
+    .then((response) => response.json())
+    .then((info) => {
       setRepairOrders(info)
     })
   }, [])
@@ -31,9 +40,12 @@ function App() {
 
         <Route path="/cars" element={<Cars carInventory={cars}/>} />
         <Route path="/cars/:id" element={<CarItem />} />
+        <Route path="/cars/new" element={<CarForm />} />
         
         <Route path="/repair-orders" element={<RepairOrders repairOrders={repairOrders}/>} />
         <Route path="/repair-orders/:id" element={<RepairOrderId />} />
+        <Route path="/repair-orders/new" element={<RepairOrderForm />} />
+
         
       </Routes>
     </div>
