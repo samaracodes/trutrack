@@ -1,8 +1,12 @@
-import { React, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom"
 
-const RepairOrderForm = ({ onAddRO }) => {
-    const initialState = {
+
+const RepairOrderEditForm = ({ onUpdateRO }) => {
+    const { id } = useParams()
+
+    const [formData, setFormData] = useState({
         year: "", 
         make: "", 
         model: "", 
@@ -15,68 +19,54 @@ const RepairOrderForm = ({ onAddRO }) => {
         plateNumber: "",
         serviceAdvisor: "",
         technician: ""
-    }
-    
+    })
+
+    const { year, make, model, mileage, vin, customerName, customerContact, roDescription, plateNumber } = formData
+
     const navigate = useNavigate()
 
-    const [formData, setFormData] = useState(initialState)
 
-    const { year, make, model, mileage, vin, customerName, customerContact, roDescription, plateNumber, serviceAdvisor, technician } = formData
+    useEffect(() => {
+        fetch(`http://localhost:3001/repair-orders/${id}`)
+            .then((res) => res.json())
+            .then((roItem) => setFormData(roItem))
+    }, [])
 
 
     const handleOnChange = (e) => {
         const { name, value } = e.target
-        
+        setFormData({ ...formData, [name]: value })
+
         console.log(`📥 Form Input via ${e.target.id}:  ${e.target.value}`);
-
-        setFormData((formData) => ({ ...formData, [name]: value }))
     }
-
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        // Optomistic Rendering
-        //Update "allROs" state with newest project
-        onAddRO(formData)
-
         const configObj = {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Accepts": "application/json",
-          },
-          body: JSON.stringify(formData),
-        };
-    
+            method: "PATCH", 
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+            },
+            body: JSON.stringify(formData),
+        }
 
-        //Add POST fetch request
-        fetch("http://localhost:3001/repair-orders", configObj)
-          .then((res) => res.json())
-          .then((newRO) => {
-            if (newRO) {
-                console.log(`🎉 New RO Successfully Submitted`)
+        fetch(`http://localhost:3001/repair-orders/${id}`, configObj)
+          .then((resp) => resp.json())
+          .then((updatedRO) => {
 
-                // merge newest listing into "allROs"
-                onAddRO(newRO);
-
-                //clear out form 
-                setFormData(initialState);
-
-                //redirect to homepage to see new RO
+                onUpdateRO(updatedRO);
+                console.log(`🎉 RO# ${id}: Successfully updated`);
                 navigate("/repair-orders")
-            } else {
-                console.error('Error', newRO)
-            }
-
         });
     };
-    
+
+
     return (
         <div class="container">
-            <h1 class="mt-4">Create a New RO</h1>
+            <h1 class="mt-4">Edit RO</h1>
             <hr/>
-
             <div class="px-1 py-5">
                 <form onSubmit={handleSubmit} class="">
                     <div class="row">
@@ -141,11 +131,11 @@ const RepairOrderForm = ({ onAddRO }) => {
                         <textarea type="text" class="form-control" id="inputRODescription" name="roDescription" value={roDescription} onChange={handleOnChange} rows="4"/>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit New Changes</button>
                 </form>
             </div>
         </div>
     )
 }
 
-export default RepairOrderForm
+export default RepairOrderEditForm
