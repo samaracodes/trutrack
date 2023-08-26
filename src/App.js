@@ -9,6 +9,7 @@ import CarForm from './components/cars/CarForm';
 import RepairOrders from './components/repairorders/RepairOrders';
 import RepairOrderId from './components/repairorders/RepairOrderId';
 import RepairOrderForm from './components/repairorders/RepairOrderForm';
+import RepairOrderEditForm from './components/repairorders/RepairOrderEditForm';
 
 
 function App() {
@@ -31,6 +32,28 @@ function App() {
     })
   }, [])
 
+  const onAddRO = (newRO) => {
+    setRepairOrders([...repairOrders, newRO])
+  }
+
+  const onUpdateRO = (updatedRO) => {
+    const updatedROs = repairOrders.map((originalRO) => {
+      if (updatedRO.id === originalRO.id) {
+        return updatedRO
+      } else {
+        return originalRO
+      }
+    })
+    setRepairOrders(updatedROs)
+  }
+
+  const onDeleteRO = (deletedRO) => {
+    const updatedROs = repairOrders.filter(
+      (ro) => ro.id !== deletedRO.id
+    );
+    setRepairOrders(updatedROs);
+  };
+
   return (
     <div className="App">
       <Navbar />
@@ -42,9 +65,10 @@ function App() {
         <Route path="/cars/:id" element={<CarItem />} />
         <Route path="/cars/new" element={<CarForm />} />
         
-        <Route path="/repair-orders" element={<RepairOrders repairOrders={repairOrders}/>} />
-        <Route path="/repair-orders/:id" element={<RepairOrderId />} />
-        <Route path="/repair-orders/new" element={<RepairOrderForm />} />
+        <Route path="/repair-orders" element={<RepairOrders repairOrders={repairOrders} />} />
+        <Route path="/repair-orders/:id" element={<RepairOrderId onDeleteRO={onDeleteRO} />} />
+        <Route path="/repair-orders/new" element={<RepairOrderForm  onAddRO={onAddRO} />} />
+        <Route path="/repair-orders/:id/edit" element={<RepairOrderEditForm onUpdateRO={onUpdateRO} />} />
 
         
       </Routes>
