@@ -1,13 +1,15 @@
 import { React, useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
-const RepairOrderId = () => {
+
+const RepairOrderId = ({ onDeleteRO }) => {
     const { id } = useParams()
     const [roItem, setRoItem] = useState([])
     const [isLoaded, setIsLoaded] = useState(false)
+    const navigate = useNavigate(0)
 
     useEffect(() => {
-        fetch(`http://localhost:3001/car-inventory/${id}`)
+        fetch(`http://localhost:3001/repair-orders/${id}`)
         .then((response) => response.json())
         .then((roItem => {
             setRoItem(roItem)
@@ -15,7 +17,16 @@ const RepairOrderId = () => {
         }))
     }, [id])
 
-    const { year, make, model, mileage, vin, customerName, customerContact, roNumber, roDescription, plateNumber } = roItem
+    const { year, make, model, mileage, vin, customerName, customerPhone, customerEmail, customerAddress, roDescription, plateNumber, dateOfService, serviceAdvisor, technician, roProgressUpdates, partsOrdered } = roItem
+
+    const handleDeleteClick = () => {
+        fetch(`http://localhost:3001/repair-orders/${id}`, {
+            method: "DELETE",
+        })
+            .then((resp) => onDeleteRO(roItem))
+            .then(navigate("/repair-orders"))
+            .then(window.location.reload())
+    }
 
     return (
         <div class="container mt-3 pb-auto">
@@ -37,8 +48,10 @@ const RepairOrderId = () => {
                                 <p class="text-muted mb-1">Miles: {mileage}</p>
                                 <p class="text-muted mb-1">Plate#: {plateNumber}</p>
 
-                                <button class="btn btn-primary mt-3 me-2">Edit</button>
-                                <button class="btn btn-outline-danger mt-3">Delete</button>
+                                {/* <Link to={`/repair-orders/${id}/edit`}type="submit" class="btn btn-primary mt-3 me-2" >Edit</Link>
+
+                                <Link type="submit" class="btn btn-outline-danger mt-3" onClick={handleDeleteClick}>Delete</Link> */}
+
                             </div>
                         </div>
                     </div>
@@ -68,7 +81,7 @@ const RepairOrderId = () => {
                             <h6 class="mb-0">Phone</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            {customerContact}
+                            {customerPhone}
                         </div>
                     </div>
 
@@ -78,7 +91,7 @@ const RepairOrderId = () => {
                             <h6 class="mb-0">Email</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            sam@example.com
+                            {customerEmail}
                         </div>
                     </div>
 
@@ -88,7 +101,7 @@ const RepairOrderId = () => {
                             <h6 class="mb-0">Address</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            100 Spring St New York, NY 10001
+                            {customerAddress}
                         </div>
                     </div>
                 </div>
@@ -96,11 +109,15 @@ const RepairOrderId = () => {
                 <hr/>
                 
                 <div class="row">
-                <div class="col-lg-12 text-center mb-3">
-                    <button type="submit" class="col-sm-3 btn btn-sm btn-primary">Edit</button>
+                    <div class="col-lg-12 text-center mb-3">
+                        <Link to={`/repair-orders/${id}/edit`} type="submit" class="col-sm-3 btn btn-sm btn-outline-primary me-2">Edit</Link>
+                        
+                        <Link type="submit" class="col-sm-3 btn btn-sm btn-danger" onClick={handleDeleteClick}>Delete</Link>
                     </div>
                 </div>
 
+               
+        
                 </div>
                 </div>
             </div>
@@ -116,11 +133,20 @@ const RepairOrderId = () => {
                     <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                             <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">RO#{roNumber}</h5>
-                                <small>3 days ago</small>
+                                <h5 class="mb-1">RO#{id}</h5>
+                                <small>Date:{dateOfService}</small>
                             </div>
-                            <p class="col-sm-9 mb-1 ps-5">{roDescription}</p>
-                            <small class="ps-5"></small>
+
+
+                            <div class="d-flex w-100 justify-content-between">
+                            <small>Advisor: {serviceAdvisor} // Tech: {technician}</small>
+
+                            </div>
+                            <p class="col-sm-9 mt-2 mb-1 ps-5">Customer Complaint: {roDescription}</p>
+                            <hr/>
+                            <p class="col-sm-9 mb-1 ps-5">Diagnosis/Progress Updates: {roProgressUpdates}</p>
+                            <hr/>
+                            <p class="col-sm-9 mb-1 ps-5">Parts Ordered: {partsOrdered}</p>
                         </a>
                     </div>
                 </div>
