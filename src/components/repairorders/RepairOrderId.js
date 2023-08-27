@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import Sidebar from "../Sidebar";
 
 
 const RepairOrderId = ({ onDeleteRO }) => {
@@ -9,7 +10,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
     const navigate = useNavigate(0)
 
     useEffect(() => {
-        fetch(`http://localhost:3001/repair-orders/${id}`)
+        fetch(`https://trutrack-backend.onrender.com/repair-orders/${id}`)
         .then((response) => response.json())
         .then((roItem => {
             setRoItem(roItem)
@@ -20,7 +21,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
     const { year, make, model, mileage, vin, customerName, customerPhone, customerEmail, customerAddress, roDescription, plateNumber, dateOfService, serviceAdvisor, technician, roProgressUpdates, partsOrdered } = roItem
 
     const handleDeleteClick = () => {
-        fetch(`http://localhost:3001/repair-orders/${id}`, {
+        fetch(`https://trutrack-backend.onrender.com/repair-orders/${id}`, {
             method: "DELETE",
         })
             .then((resp) => onDeleteRO(roItem))
@@ -29,9 +30,11 @@ const RepairOrderId = ({ onDeleteRO }) => {
     }
 
     return (
+        
         <div class="container mt-3 pb-auto">
               
-            <h2 class="mb-3">Vehicle History</h2>
+            <h3 class="mb-3">RO#{id} Summary</h3>
+            <hr/>
     
             <div class="row gutters-sm">
                        
@@ -127,18 +130,18 @@ const RepairOrderId = ({ onDeleteRO }) => {
         
                 <div class="card text-start">
                     <div class="card-header">
-                        <h5 class="card-title">Repair Orders</h5>
+                        <h4 class="card-title text-white">Repair Orders</h4>
                     </div>
 
                     <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                            <div class="d-flex w-100 justify-content-between">
+                            <div class="heading d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">RO#{id}</h5>
                                 <small>Date:{dateOfService}</small>
                             </div>
 
 
-                            <div class="d-flex w-100 justify-content-between">
+                            <div class="heading d-flex w-100 justify-content-between">
                             <small>Advisor: {serviceAdvisor} // Tech: {technician}</small>
 
                             </div>

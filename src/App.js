@@ -17,7 +17,7 @@ function App() {
   const [repairOrders, setRepairOrders] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3001/car-inventory")
+    fetch("https://trutrack-backend.onrender.com/car-inventory")
     .then((response) => response.json())
     .then((info) => {
       setCars(info)
@@ -25,7 +25,7 @@ function App() {
   }, [])
 
   useEffect(() => {
-    fetch("http://localhost:3001/repair-orders")
+    fetch("https://trutrack-backend.onrender.com/repair-orders")
     .then((response) => response.json())
     .then((info) => {
       setRepairOrders(info)

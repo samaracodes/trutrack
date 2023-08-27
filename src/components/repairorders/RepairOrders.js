@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import './ro.css'
+import Sidebar from "../Sidebar";
 
 const RepairOrders = ({ repairOrders }) => {
 
     return (
-        <div>            
+        <div class="container-fluid">   
+        <div class="row">
+            <Sidebar />       
+
+            <main className="col-md-9 ms-sm-auto col-lg-10 px-md-5">
+                    <div className="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">  
             <div class="container mt-4">
                 {/* // Heading // */}
                 <div class="row align-items-center">
@@ -105,6 +111,9 @@ const RepairOrders = ({ repairOrders }) => {
                         <div><p class="mb-sm-0">Showing 1 to {repairOrders.length} entries</p></div>
                     </div>
                 </div>
+            </div>
+            </div>
+            </main>
             </div>
         </div>
     )

@@ -8,7 +8,7 @@ const CarItem = () => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:3001/car-inventory/${id}`)
+        fetch(`https://trutrack-backend.onrender.com/car-inventory/${id}`)
         .then((response) => response.json())
         .then((carItem => {
             setCarItem(carItem)

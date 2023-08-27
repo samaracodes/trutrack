@@ -13,7 +13,8 @@ const RepairOrderEditForm = ({ onUpdateRO }) => {
         mileage: "", 
         vin: "", 
         customerName: "", 
-        customerContact: "", 
+        customerPhone: "",
+        customerEmail: "", 
         roNumber: "", 
         roDescription: "", 
         plateNumber: "",
@@ -21,13 +22,13 @@ const RepairOrderEditForm = ({ onUpdateRO }) => {
         technician: ""
     })
 
-    const { year, make, model, mileage, vin, customerName, customerContact, roDescription, plateNumber } = formData
+    const { year, make, model, mileage, vin, customerName, customerPhone, customerEmail, roDescription, plateNumber, serviceAdvisor, technician } = formData
 
     const navigate = useNavigate()
 
 
     useEffect(() => {
-        fetch(`http://localhost:3001/repair-orders/${id}`)
+        fetch(`https://trutrack-backend.onrender.com/repair-orders/${id}`)
             .then((res) => res.json())
             .then((roItem) => setFormData(roItem))
     }, [])
@@ -36,8 +37,6 @@ const RepairOrderEditForm = ({ onUpdateRO }) => {
     const handleOnChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
-
-        console.log(`📥 Form Input via ${e.target.id}:  ${e.target.value}`);
     }
 
     const handleSubmit = (e) => {
@@ -71,64 +70,70 @@ const RepairOrderEditForm = ({ onUpdateRO }) => {
                 <form onSubmit={handleSubmit} class="">
                     <div class="row">
                         <div class="w-25 mb-3 col">
-                            <label for="customerName" class="form-label">Customer Name</label>
-                            <input type="text" class="form-control" id="inputCustomerName" name="customerName" value={customerName} onChange={handleOnChange} />
+                            <label class="form-label">Customer Name</label>
+                            <input type="text" class="form-control"  name="customerName" value={customerName} onChange={handleOnChange} />
                         </div>
 
                         <div class="w-25 mb-3 col">
-                            <label for="customerContact" class="form-label">Customer Contact</label>
-                            <input type="text" class="form-control" id="inputCustomerContact" name="customerContact" value={customerContact} onChange={handleOnChange} />
+                            <label class="form-label">Customer Phone</label>
+                            <input type="text" class="form-control" name="customerPhone" value={customerPhone} onChange={handleOnChange} />
+                        </div>
+
+                        <div class="w-25 mb-3 col">
+                            <label class="form-label">Customer Email</label>
+                            <input type="text" class="form-control" name="customerEmail" value={customerEmail} onChange={handleOnChange} />
                         </div>
                     </div>
+                    
 
                 <div class="row">
                     <div class="w-25 mb-3 col">
-                        <label for="inputVehicleYear" class="form-label">Vehicle Year</label>
-                        <input type="text" class="form-control" id="inputVehicleYear" name="year" value={year} onChange={handleOnChange} />
+                        <label class="form-label">Vehicle Year</label>
+                        <input type="text" class="form-control"  name="year" value={year} onChange={handleOnChange} />
                     </div>
 
                     <div class="w-25 mb-3 col">
-                        <label for="inputVehicleMake" class="form-label">Vehicle Make</label>
-                        <input type="text" class="form-control" id="inputVehicleMake" name="make" value={make} onChange={handleOnChange} />
+                        <label class="form-label">Vehicle Make</label>
+                        <input type="text" class="form-control"  name="make" value={make} onChange={handleOnChange} />
                     </div>
 
                     <div class="w-25 mb-3 col ">
-                        <label for="inputVehicleModel" class="form-label">Vehicle Model</label>
-                        <input type="text" class="form-control" id="inputVehicleModel" name="model" value={model} onChange={handleOnChange} />
+                        <label class="form-label">Vehicle Model</label>
+                        <input type="text" class="form-control"  name="model" value={model} onChange={handleOnChange} />
                     </div>
                     </div>
 
                     <div class="row">
                     <div class="w-25 mb-3 col">
-                        <label for="inputVehicleMileage" class="form-label">Vehicle Mileage</label>
-                        <input type="text" class="form-control" id="inputVehicleMileage" name="mileage" value={mileage} onChange={handleOnChange} />
+                        <label class="form-label">Vehicle Mileage</label>
+                        <input type="text" class="form-control"  name="mileage" value={mileage} onChange={handleOnChange} />
                     </div>
                     
 
                     <div class="w-25 mb-3 col">
-                        <label for="inputVehicleVIN" class="form-label">VIN#</label>
-                        <input type="text" class="form-control" id="inputVehicleVIN" name="vin" value={vin} onChange={handleOnChange} />
+                        <label class="form-label">VIN#</label>
+                        <input type="text" class="form-control" name="vin" value={vin} onChange={handleOnChange} />
                     </div>
 
                     <div class="w-25 mb-3 col">
-                        <label for="inputVehiclePlate" class="form-label">Vehicle Plate #</label>
-                        <input type="text" class="form-control" id="inputVehiclePlate" name="plateNumber" value={plateNumber} onChange={handleOnChange} />
+                        <label class="form-label">Vehicle Plate #</label>
+                        <input type="text" class="form-control" name="plateNumber" value={plateNumber} onChange={handleOnChange} />
                     </div>
                     </div>
 
-                    {/* <div class="mb-3">
+                    <div class="mb-3">
                         <label for="inputServiceAdvisor" class="form-label">Service Advisor</label>
-                        <input type="text" class="form-control" id="inputServiceAdvisor" name="serviceAdvisor" value={serviceAdvisor} onChange={handleOnChange} />
+                        <input type="text" class="form-control" name="serviceAdvisor" value={serviceAdvisor} onChange={handleOnChange} />
                     </div>
 
                     <div class="mb-3">
                         <label for="inputTechnician" class="form-label">Technician </label>
-                        <input type="text" class="form-control" id="inputTechnician" name="technician" value={technician} onChange={handleOnChange} />
-                    </div> */}
+                        <input type="text" class="form-control" name="technician" value={technician} onChange={handleOnChange} />
+                    </div>
 
                     <div class=" mb-3">
-                        <label for="inputRODescription" class="form-label">Vehicle Concerns </label>
-                        <textarea type="text" class="form-control" id="inputRODescription" name="roDescription" value={roDescription} onChange={handleOnChange} rows="4"/>
+                        <label class="form-label">Vehicle Concerns </label>
+                        <textarea type="text" class="form-control"  name="roDescription" value={roDescription} onChange={handleOnChange} rows="4"/>
                     </div>
 
                     <button type="submit" class="btn btn-success">Submit New Changes</button>

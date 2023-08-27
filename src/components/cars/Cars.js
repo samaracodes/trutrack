@@ -13,7 +13,7 @@ const Cars = ({ carInventory }) => {
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-5">
                     <div className="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">
                         
-                        <h2 className="h2 mb-3">Car Inventory</h2>
+                        <h2 className="h2 mb-3">Customers Inventory</h2>
 
                         <Link to="/cars/new">
                             <button type="button" class="btn btn-primary">
