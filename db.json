@@ -1,118 +1,157 @@
 {
-  "car-inventory": [
+  "customers": [
     {
-      "id": 100,
-      "dateOfService": "08/12/2023",
-      "dateCompleted": "TBD",
-      "year": "2018",
-      "make": "BMW",
-      "model": "M4",
-      "mileage": "18,564",
-      "vin": "WBS3R9C50FK331665",
-      "customerName": "Samara Grant",
-      "customerPhone": "347-555-5555",
-      "customerEmail": "sam@example.com",
-      "customerAddress": "123 Spring St New York, NY 11001",
-      "roNumber": "100",
-      "roDescription": "Customer states: intermittent whistling sound coming from bonnet. Only after vehicle is warm and @ idle.",
-      "roProgressUpdates": "",
-      "roStatus": "OPEN",
-      "plateNumber": "M4DEULK",
-      "transmission": "DCT",
-      "serviceAdvisor": "JL",
-      "technician": "53",
-      "partsOrdered": ""
+      "id": 1,
+      "customerInfo": {
+          "name": "Samara Grant",
+          "phone": "347-555-5555",
+          "email": "sam@example.com",
+          "address": "123 Spring St New York, NY 11001"
+      }, 
+      "vehicleInfo": {
+        "year": "2018",
+        "make": "BMW",
+        "model": "M4",
+        "mileage": "18,564",
+        "vin": "WBS3R9C50FK331665",
+        "plateNumber": "M4DEULK"
+
+      },
+      "repairOrders": [
+        {
+          "id": 100,
+          "dateOfService": "03/12/2023",
+          "customerConcern": "Customer states intermittent whistling sound coming from bonnet. Only after vehicle is warm and @ idle",
+          "technicianDiagnosis": "Upon test drive audible whistling noise persists. Located @ PVC Valve in valve cover. Valve cover needs to be replaced",
+          "partsOrdered": "Qty: 1x - Part#11127846359 | S55 Valve Cover",
+          "serviceAdvisor": "JL",
+          "technician": "06"
+        },
+        {
+          "id": 101,
+          "dateOfService": "03/29/2023",
+          "customerConcern": "Customer states oil leak coming from engine",
+          "technicianDiagnosis": "Upon inspection oil leaking from valve cover. Valve cover appears to be unwarped. Gasket will need replacing.",
+          "partsOrdered": "Qty: 1x - Part#11127587804 | S55 Valve Cover Gasket Seal",
+          "serviceAdvisor": "JL",
+          "technician": "06"
+        }
+        
+      ]
+    },
+
+    {
+      "id": 2,
+      "customerInfo": {
+        "name": "Adam Jingleheimer",
+        "phone": "347-123-4567",
+        "email": "adam@example.com",
+        "address": "34 Dekalb Ave Brooklyn, NY 11201"
+      },
+      "vehicleInfo": {
+        "year": "2013",
+        "make": "BMW",
+        "model": "M3",
+        "mileage": "75,102",
+        "vin": "WBS8M9C5XG5G41782",
+        "plateNumber": "HEB3849"
+
+      },
+      "repairOrders": [
+        {
+          "id": 102,
+          "dateOfService": "08/1/2023",
+          "customerConcern": "Customer states smell of syrup coming from air vents while a/c is running",
+          "technicianDiagnosis": "Coolant found leaking from radiator. Engine overheating. Replacement of radiator is advised",
+          "partsOrdered": "Qty: 1 - Part#7059 | E9x M3 / S65 Radiator",
+          "serviceAdvisor": "JL",
+          "technician": "127"
+        }
+      ]
     },
     {
-      "id": 101,
-      "dateOfService": "08/1/2023",
-      "dateCompleted": "08/4/2023",
-      "year": "2013",
-      "make": "BMW",
-      "model": "M3",
-      "mileage": "75,102",
-      "vin": "WBS8M9C5XG5G41782",
-      "customerName": "Adam Jingleheimer",
-      "customerPhone": "347-555-5555",
-      "customerEmail": "sam@example.com",
-      "customerAddress": "123 Spring St New York, NY 11001",
-      "roNumber": "101",
-      "roDescription": "Customer states: smell of syrup coming from air vents while a/c is running.",
-      "roProgressUpdates": "",
-      "roStatus": "CLOSED",
-      "plateNumber": "HEB3849",
-      "transmission": "DCT",
-      "serviceAdvisor": "JL",
-      "technician": "06",
-      "partsOrdered": ""
+      "id": 3,
+      "customerInfo": {
+        "name": "Carmelo Anthony",
+        "phone": "929-000-0000",
+        "email": "carmelo@example.com",
+        "address": "9 Adams Lane Hicksville, NY 11801"
+      },
+      "vehicleInfo": {
+        "year": "2023",
+        "make": "BMW",
+        "model": "M340",
+        "mileage": "12,091",
+        "vin": "WBS3C9C58FP804720",
+        "plateNumber": "JKP3947"
+      },
+      "repairOrders": [
+        {
+          "id": 103,
+          "dateOfService": "07/12/2023",
+          "customerConcern": "Customer states: CEL on, no flashing",
+          "technicianDiagnosis": "CEL codes cleared itself. Customer advised to return in the event CEL appears again for further diagnosis",
+          "partsOrdered": "N/A",
+          "serviceAdvisor": "DD",
+          "technician": "53"
+        }
+      ]
     },
     {
-      "id": 102,
-      "dateOfService": "07/12/2023",
-      "dateCompleted": "TBD",
-      "year": "2023",
-      "make": "BMW",
-      "model": "M340",
-      "mileage": "12,091",
-      "vin": "WBS3C9C58FP804720",
-      "customerName": "Carmelo Anthony",
-      "customerPhone": "347-555-5555",
-      "customerEmail": "sam@example.com",
-      "customerAddress": "123 Spring St New York, NY 11001",
-      "roNumber": "102",
-      "roDescription": "Customer states: CEL on, no flash",
-      "roProgressUpdates": "",
-      "roStatus": "OPEN",
-      "plateNumber": "JKP3947",
-      "transmission": "Manual",
-      "serviceAdvisor": "DD",
-      "technician": "53",
-      "partsOrdered": ""
+      "id": 4,
+      "customerInfo": {
+        "name": "Cameron Matias",
+        "phone": "516-123-1234",
+        "email": "cameron@example.com",
+        "address": "11 Elm St New York, NY 11011"
+      },
+      "vehicleInfo": {
+        "year": "2016",
+        "make": "BMW",
+        "model": "M3",
+        "mileage": "45,283",
+        "vin": "1HCG6FH3331",
+        "plateNumber": "REVM3"
+      },
+      "repairOrders": [
+        {
+          "id": 104,
+          "dateOfService": "08/12/2023",
+          "customerConcern": "Oil change && NYS Safety/EmissionsInspection",
+          "technicianDiagnosis": "Oil & filter changed, NYS Inspection passed",
+          "partsOrdered": "Qty: 1x - Part#9389 | BMW OEM Oil & Filter set",
+          "serviceAdvisor": "DD",
+          "technician": "127"
+        }
+      ]
     },
     {
-      "id": 103,
-      "dateOfService": "08/12/2023",
-      "dateCompleted": "08/12/2023",
-      "year": "2016",
-      "make": "BMW",
-      "model": "M3",
-      "mileage": "45,283",
-      "vin": "1HCG6FH3331",
-      "customerName": "Cameron Matias",
-      "customerPhone": "347-555-5555",
-      "customerEmail": "sam@example.com",
-      "customerAddress": "123 Spring St New York, NY 11001",
-      "roNumber": "103",
-      "roDescription": "Customer states: CEL on, no flash",
-      "roProgressUpdates": "",
-      "roStatus": "CLOSED",
-      "plateNumber": "REVM3",
-      "transmission": "Manual",
-      "serviceAdvisor": "JL",
-      "technician": "127",
-      "partsOrdered": ""
-    },
-    {
-      "id": 104,
-      "dateOfService": "08/12/2023",
-      "year": "2022",
-      "make": "BMW",
-      "model": "M5",
-      "mileage": "2,834",
-      "vin": "1HCG6FH3331",
-      "customerName": "Tabitha Smith",
-      "customerPhone": "347-555-5555",
-      "customerEmail": "sam@example.com",
-      "customerAddress": "123 Spring St New York, NY 11001",
-      "roNumber": "104",
-      "roDescription": "Customer states: CEL on, no flash",
-      "roProgressUpdates": "",
-      "roStatus": "OPEN",
-      "plateNumber": "JES7495",
-      "transmission": "Manual",
-      "serviceAdvisor": "KS",
-      "technician": "97",
-      "partsOrdered": ""
+      "id": 5,
+      "customerInfo": {
+        "name": "Tabitha Smith",
+        "phone": "347-555-5555",
+        "email": "sam@example.com",
+        "address": "123 Spring St New York, NY 11001"
+      },
+      "vehicleInfo": {
+        "year": "2022",
+        "make": "BMW",
+        "model": "M5",
+        "mileage": "2,834",
+        "vin": "1HCG6FH333HN39237",
+        "plateNumber": "JES7495"
+      },
+      "repairOrders": [
+        {
+          "id": 105,
+          "dateOfService": "08/12/2023",
+          "customerConcern": "NYS Safety Inspection. Tire Rotation",
+          "technicianDiagnosis": "NYS Inspection passed",
+          "partsOrdered": "N/A",
+          "serviceAdvisor": "KC",
+          "technician": "97"
+        }
+      ]
     }
   ],
   "repair-orders": [
@@ -177,8 +216,7 @@
       "transmission": "Manual",
       "serviceAdvisor": "DD",
       "technician": "53",
-      "partsOrdered": "",
-      "customerContact": "8888888"
+      "partsOrdered": ""
     },
     {
       "id": 103,
@@ -199,8 +237,7 @@
       "transmission": "Manual",
       "serviceAdvisor": "JL",
       "technician": "127",
-      "partsOrdered": "",
-      "customerContact": "8888888"
+      "partsOrdered": ""
     },
     {
       "id": 104,
