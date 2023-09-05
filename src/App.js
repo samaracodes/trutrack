@@ -18,7 +18,11 @@ function App() {
 
   useEffect(() => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     fetch("https://trutrack-backend.onrender.com/car-inventory")
+=======
+    fetch("http://localhost:3001/customers")
+>>>>>>> main
 =======
     fetch("http://localhost:3001/customers")
 >>>>>>> main

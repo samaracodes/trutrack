@@ -14,12 +14,17 @@ const Customers = ({ customers }) => {
                     <main className="col-md-9 ms-sm-auto col-lg-10 px-md-5">
                     <div className="d-flex justify-content-between flex-wrap align-items-center pt-3 pb-2 mb-3">
                         
+<<<<<<< HEAD
 <<<<<<< HEAD:src/components/cars/Cars.js
                         <h2 className="h2 mb-3">Customers Inventory</h2>
 =======
                         <h2 className="h2 mb-3">Customer Inventory</h2>
 
 >>>>>>> main:src/components/customers/Customers.js
+=======
+                        <h2 className="h2 mb-3">Customer Inventory</h2>
+
+>>>>>>> main
 
 
                         <div className="row row-cols-1 row-cols-md-3 g-4">

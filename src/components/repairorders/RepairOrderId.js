@@ -136,6 +136,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
                     <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action" aria-current="true">
 <<<<<<< HEAD
+<<<<<<< HEAD
                             <div class="heading d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">RO#{id}</h5>
                                 <small>Date:{dateOfService}</small>
@@ -144,6 +145,16 @@ const RepairOrderId = ({ onDeleteRO }) => {
 
                             <div class="heading d-flex w-100 justify-content-between">
                             <small>Advisor: {serviceAdvisor} // Tech: {technician}</small>
+=======
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">RO#{roItem.id}</h5>
+                                <small>Date:{roItem.dateOfService}</small>
+                            </div>
+
+
+                            <div class="d-flex w-100 justify-content-between">
+                            <small>Advisor: {roItem.serviceAdvisor} // Tech: {roItem.technician}</small>
+>>>>>>> main
 =======
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">RO#{roItem.id}</h5>

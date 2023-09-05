@@ -8,11 +8,15 @@ const CustomerItem = () => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
+<<<<<<< HEAD
 <<<<<<< HEAD:src/components/cars/CarItem.js
         fetch(`https://trutrack-backend.onrender.com/car-inventory/${id}`)
 =======
         fetch(`http://localhost:3001/customers/${id}`)
 >>>>>>> main:src/components/customers/CustomerItem.js
+=======
+        fetch(`http://localhost:3001/customers/${id}`)
+>>>>>>> main
         .then((response) => response.json())
         .then((data) => {
             setCustomer(data);
