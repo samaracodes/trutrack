@@ -25,18 +25,12 @@ const Sidebar = () => {
                 <li className="sbni nav-item">
                     <NavLink to="/repair-orders" className="nav-link" style={{ textDecoration: 'none' }}  href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bar-chart-2 me-2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                    Open RO's
+                    All RO's
                     </NavLink>
                 </li>
                 <hr/>
 
-                <li className="sbni nav-item">
-                    <NavLink to="/repair-orders" className="nav-link" style={{ textDecoration: 'none' }}  href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-bar-chart-2 me-2" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                    Closed RO's
-                    </NavLink>
-                </li>
-                <hr/>
+    
             </ul>
         </div>
       </nav>
