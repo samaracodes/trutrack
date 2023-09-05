@@ -1,25 +1,25 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import './CarItem.css'
+import './CustomerItem.css'
 
-const CarItem = () => {
+const CustomerItem = () => {
     const { id } = useParams()
-    const [carItem, setCarItem] = useState([])
+    const [customer, setCustomer] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:3001/car-inventory/${id}`)
+        fetch(`http://localhost:3001/customers/${id}`)
         .then((response) => response.json())
-        .then((carItem => {
-            setCarItem(carItem)
-            setIsLoaded(!isLoaded)
-        }))
+        .then((data) => {
+            setCustomer(data);
+            setIsLoaded(!isLoaded);
+        })
     }, [id])
 
-    // if (!isLoaded) return <h1>Please refresh...</h1>
+    if (!isLoaded) return <h1>Please refresh...</h1>
+  
 
-    const { year, make, model, mileage, vin, customerName, customerContact, roNumber, roDescription, plateNumber } = carItem
-    
+
     return (
         <div className="carItemPage">
             <div class="container mt-3 pb-auto">
@@ -35,11 +35,11 @@ const CarItem = () => {
                             <div class="d-flex flex-column align-items-center">
                             <img src="../f80m3.webp" alt="Admin" width="220"/>
                             <div class="mt-3">
-                                <h4 className="border-bottom">{customerName}</h4>
-                                <p class="text-muted mb-1">{year} {make} {model}</p>
-                                <p class="text-muted mb-1">VIN: {vin}</p>
-                                <p class="text-muted mb-1">Miles: {mileage}</p>
-                                <p class="text-muted mb-1">Plate#: {plateNumber}</p>
+                                <h4 className="border-bottom">{customer.customerInfo.name}</h4>
+                                <p class="text-muted mb-1">{customer.vehicleInfo.year} {customer.vehicleInfo.make} {customer.vehicleInfo.model}</p>
+                                <p class="text-muted mb-1">VIN: {customer.vehicleInfo.vin}</p>
+                                <p class="text-muted mb-1">Miles: {customer.vehicleInfo.mileage}</p>
+                                <p class="text-muted mb-1">Plate#: {customer.vehicleInfo.plateNumber}</p>
 
                                 <button class="btn btn-primary mt-3 me-2">Edit</button>
                                 <button class="btn btn-outline-danger mt-3">Delete</button>
@@ -48,7 +48,6 @@ const CarItem = () => {
                     </div>
                 </div>
             
-            {/* // Social box links // */}
                 
                 </div>
 
@@ -62,7 +61,7 @@ const CarItem = () => {
                             <h6 class="mb-0">Customer Name</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            {customerName}
+                            {customer.customerInfo.name}
                         </div>
                     </div>
 
@@ -72,7 +71,7 @@ const CarItem = () => {
                             <h6 class="mb-0">Phone</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            {customerContact}
+                            {customer.customerInfo.phone}
                         </div>
                     </div>
 
@@ -82,7 +81,7 @@ const CarItem = () => {
                             <h6 class="mb-0">Email</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            sam@example.com
+                            {customer.customerInfo.email}
                         </div>
                     </div>
 
@@ -92,7 +91,7 @@ const CarItem = () => {
                             <h6 class="mb-0">Address</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            100 Spring St New York, NY 10001
+                            {customer.customerInfo.address}
                         </div>
                     </div>
                 </div>
@@ -118,34 +117,32 @@ const CarItem = () => {
                     </div>
 
                     <div class="list-group">
+{customer.repairOrders.map((item) => 
+
+   
                         <a href="#" class="list-group-item list-group-item-action" aria-current="true">
                             <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">RO#{roNumber}</h5>
-                                <small className="text-muted">/ 3 days ago</small>
+                                <h5 class="mb-1">RO#{item.id}</h5>
+                                <small>Date:{item.dateOfService}</small>
                             </div>
-                            <p class="col-sm-8 ms-5 mb-1 ps-5 text-muted">{roDescription}</p>
+
+
+                            <div class="d-flex w-100 justify-content-between">
+                            <small>Advisor: {item.serviceAdvisor} // Tech: {item.technician}</small>
+
+                            </div>
+                            <p class="col-sm-9 mt-2 mb-1 ps-5">Customer Complaint: {item.customerConcern}</p>
+                            <hr/>
+                            <p class="col-sm-9 mb-1 ps-5">Diagnosis/Progress Updates: {item.technicianDiagnosis}</p>
+                            <hr/>
+                            <p class="col-sm-9 mb-1 ps-5">Parts Ordered: {item.partsOrdered}</p>
                         </a>
+)}
                     </div>
 
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">RO#{roNumber}</h5>
-                                <small className="text-muted">/ 3 days ago</small>
-                            </div>
-                            <p class="col-sm-8 ms-5 mb-1 ps-5 text-muted">{roDescription}</p>
-                        </a>
-                    </div>
+                    
 
-                    <div class="list-group">
-                        <a href="#" class="list-group-item list-group-item-action" aria-current="true">
-                            <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1">RO#{roNumber}</h5>
-                                <small className="text-muted">/ 3 days ago</small>
-                            </div>
-                            <p class="col-sm-8 ms-5 mb-1 ps-5 text-muted">{roDescription}</p>
-                        </a>
-                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -154,4 +151,4 @@ const CarItem = () => {
     )
 }
 
-export default CarItem
+export default CustomerItem
