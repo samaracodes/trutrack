@@ -8,7 +8,7 @@ const Homepage = () => {
 
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                            <img src="./bmwf1-pit-crew.jpg" class="d-block w-100"  ariaHidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" style={{"height": "650px"}}/>
+                            <img src="public/bmwf1-pit-crew.jpg" class="d-block w-100"  ariaHidden="true" preserveAspectRatio="xMidYMid slice" focusable="false" style={{"height": "650px"}}/>
 
                             <div class="container">
                             <div class="carousel-caption text-start">
@@ -29,7 +29,7 @@ const Homepage = () => {
                 {/* <!-- Three columns of text below the carousel --> */}
                 <div class="row pt-5">
                     <div class="col-lg-4">
-                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="content1.jpg" />
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="public/content1.jpg" />
 
                         <h2>Efficiency</h2>
                         <p>TruTrack assists service writers and technicians keep track of the vehicles that come in for repair.</p>
@@ -37,7 +37,7 @@ const Homepage = () => {
                     </div>
 
                     <div class="col-lg-4">
-                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="content2.png" />
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="public/content2.png" />
 
                         <h2>Organization</h2>
                         <p>Vehicle History details are easily stored and accessible all in one place. Updates are uploaded in real time 😊</p>
@@ -45,7 +45,7 @@ const Homepage = () => {
                     </div>
 
                     <div class="col-lg-4">
-                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="content3.jpg" />
+                        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="public/content3.jpg" />
 
                         <h2>Coverage</h2>
                         <p>We are able to view warranty coverage and parts that are on order.</p>
