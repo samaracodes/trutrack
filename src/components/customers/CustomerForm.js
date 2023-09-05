@@ -1,6 +1,6 @@
 import React from "react";
 
-const CarForm = () => {
+const CustomerForm = () => {
     return (
 
         <body class="container bg-light">
@@ -102,4 +102,4 @@ const CarForm = () => {
     )
 }
 
-export default CarForm
+export default CustomerForm

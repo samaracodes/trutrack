@@ -5,20 +5,21 @@ import Sidebar from "../Sidebar";
 
 const RepairOrderId = ({ onDeleteRO }) => {
     const { id } = useParams()
-    const [roItem, setRoItem] = useState([])
+    const [roItem, setRoItem] = useState(null)
     const [isLoaded, setIsLoaded] = useState(false)
     const navigate = useNavigate(0)
 
     useEffect(() => {
         fetch(`https://trutrack-backend.onrender.com/repair-orders/${id}`)
         .then((response) => response.json())
-        .then((roItem => {
-            setRoItem(roItem)
-            setIsLoaded(!isLoaded)
-        }))
+        .then((roItem) => {
+            setRoItem(roItem);
+            setIsLoaded(!isLoaded);
+        })
     }, [id])
 
-    const { year, make, model, mileage, vin, customerName, customerPhone, customerEmail, customerAddress, roDescription, plateNumber, dateOfService, serviceAdvisor, technician, roProgressUpdates, partsOrdered } = roItem
+    if (!isLoaded) return <h1>Please refresh...</h1>
+
 
     const handleDeleteClick = () => {
         fetch(`https://trutrack-backend.onrender.com/repair-orders/${id}`, {
@@ -28,6 +29,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
             .then(navigate("/repair-orders"))
             .then(window.location.reload())
     }
+
 
     return (
         
@@ -45,23 +47,21 @@ const RepairOrderId = ({ onDeleteRO }) => {
                             <div class="d-flex flex-column align-items-center">
                             <img src="../f80m3.webp" alt="Admin" width="220"/>
                             <div class="mt-3">
-                                <h4 className="border-bottom">{customerName}</h4>
-                                <p class="text-muted mb-1">{year} {make} {model}</p>
-                                <p class="text-muted mb-1">VIN: {vin}</p>
-                                <p class="text-muted mb-1">Miles: {mileage}</p>
-                                <p class="text-muted mb-1">Plate#: {plateNumber}</p>
+                                <h4 className="border-bottom">{roItem.customerName}</h4>
+                                <p class="text-muted mb-1">{roItem.carYear} {roItem.carMake} {roItem.carModel}</p>
+                                <p class="text-muted mb-1">VIN: {roItem.carVin}</p>
+                                <p class="text-muted mb-1">Miles: {roItem.carMileage}</p>
+                                <p class="text-muted mb-1">Plate#: {roItem.carPlateNumber}</p>
 
-                                {/* <Link to={`/repair-orders/${id}/edit`}type="submit" class="btn btn-primary mt-3 me-2" >Edit</Link>
+                                <Link to={`/repair-orders/${id}/edit`}type="submit" class="btn btn-primary mt-3 me-2" >Edit</Link>
 
-                                <Link type="submit" class="btn btn-outline-danger mt-3" onClick={handleDeleteClick}>Delete</Link> */}
+                                <Link type="submit" class="btn btn-outline-danger mt-3" onClick={handleDeleteClick}>Delete</Link>
 
                             </div>
                         </div>
                     </div>
                 </div>
             
-            {/* // Social box links // */}
-                
                 </div>
 
 
@@ -74,7 +74,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
                             <h6 class="mb-0">Customer Name</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            {customerName}
+                            {roItem.customerName}
                         </div>
                     </div>
 
@@ -84,7 +84,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
                             <h6 class="mb-0">Phone</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            {customerPhone}
+                            {roItem.customerPhone}
                         </div>
                     </div>
 
@@ -94,7 +94,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
                             <h6 class="mb-0">Email</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            {customerEmail}
+                            {roItem.customerEmail}
                         </div>
                     </div>
 
@@ -104,7 +104,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
                             <h6 class="mb-0">Address</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            {customerAddress}
+                            {roItem.customerAddress}
                         </div>
                     </div>
                 </div>
@@ -135,6 +135,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
 
                     <div class="list-group">
                         <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+<<<<<<< HEAD
                             <div class="heading d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">RO#{id}</h5>
                                 <small>Date:{dateOfService}</small>
@@ -143,13 +144,23 @@ const RepairOrderId = ({ onDeleteRO }) => {
 
                             <div class="heading d-flex w-100 justify-content-between">
                             <small>Advisor: {serviceAdvisor} // Tech: {technician}</small>
+=======
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">RO#{roItem.id}</h5>
+                                <small>Date:{roItem.dateOfService}</small>
+                            </div>
+
+
+                            <div class="d-flex w-100 justify-content-between">
+                            <small>Advisor: {roItem.serviceAdvisor} // Tech: {roItem.technician}</small>
+>>>>>>> main
 
                             </div>
-                            <p class="col-sm-9 mt-2 mb-1 ps-5">Customer Complaint: {roDescription}</p>
+                            <p class="col-sm-9 mt-2 mb-1 ps-5">Customer Complaint: {roItem.customerConcern}</p>
                             <hr/>
-                            <p class="col-sm-9 mb-1 ps-5">Diagnosis/Progress Updates: {roProgressUpdates}</p>
+                            <p class="col-sm-9 mb-1 ps-5">Diagnosis/Progress Updates: {roItem.technicianDiagnosis}</p>
                             <hr/>
-                            <p class="col-sm-9 mb-1 ps-5">Parts Ordered: {partsOrdered}</p>
+                            <p class="col-sm-9 mb-1 ps-5">Parts Ordered: {roItem.partsOrdered}</p>
                         </a>
                     </div>
                 </div>

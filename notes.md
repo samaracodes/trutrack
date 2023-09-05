@@ -18,7 +18,7 @@ To Do/Progress Checklist
 ------------------------------------------------
 [] - add 'Close RO' button logic in ROList & display jsx in ROItem, 
 [✅] - fix advisor display in jsx
-[] - separate customer and repair order objects so we can display car inventory by customer, and list all customer RO's a customer has
-[] - rename all Cars components to Customer
-[] - Copy & paste RepairOrderID styling to customerID page
+[✅] - separate customer and repair order objects so we can display car inventory by customer, and list all customer RO's a customer has
+[✅] - rename all Cars components to Customer
+[✅] - Copy & paste RepairOrderID styling to customerID page
 [] - change RepairOrderID styling to get rid of repair order list dropdown & just display all RO content in container. Add edit button to RO description container

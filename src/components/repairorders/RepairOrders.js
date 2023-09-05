@@ -17,7 +17,7 @@ const RepairOrders = ({ repairOrders }) => {
                 <div class="row align-items-center">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <h2 class="card-title text-start">Open Repair Orders <span class="text-muted fw-normal ms-2">({repairOrders.length})</span></h2>
+                            <h2 class="card-title text-start">All Repair Orders <span class="text-muted fw-normal ms-2">({repairOrders.length})</span></h2>
                         </div>
                     </div>
 
@@ -63,18 +63,23 @@ const RepairOrders = ({ repairOrders }) => {
                                     </thead>
                                     
                 {/* // List of RO's // */}
-                                    {repairOrders.map((ro) => 
-                                        <tbody key={ro.id}>         
+                                    {repairOrders.map((item) => 
+                                        <tbody key={item.id}>         
                                             <tr>
-                                                <td><p class="mb-0">{ro.id}</p></td>
-                                                <td><p class="mb-0">{ro.customerName}</p></td>
-                                                <td><p class="mb-0">{ro.year} {ro.make} {ro.model}</p></td>
-                                                <td><p class="mb-0">{ro.serviceAdvisor}</p></td>
-                                                <td><p class="mb-0">{ro.technician}</p></td>
+                                                <td><p class="mb-0">{item.id}</p></td>
+
+                                                <td><p class="mb-0">{item.customerName}</p></td>
+                                        
+                                                <td><p class="mb-0">{item.carYear} {item.carMake} {item.carModel}</p></td>
+
+                                
+                                                <td><p class="mb-0">{item.serviceAdvisor}</p></td>
+                                                <td><p class="mb-0">{item.technician}</p></td>
+                                              
                                                 <td>
                                                     <ul class="list-inline mb-0">
 
-                                                    <Link to={`/repair-orders/${ro.id}`}>
+                                                    <Link to={`/repair-orders/${item.id}`}>
                                                         <button type="button" class="btn btn-outline-primary">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
                                                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"></path>
