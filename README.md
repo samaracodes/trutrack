@@ -1,5 +1,9 @@
 # TruTrack 
-Summary: Mock automotive dealer management system software designed to help track vehicle repairs
+### Summary: Mock automotive dealer management system software designed to help track vehicle repairs
+
+A user is able to create, read, update, and delete a Repair Order.
+
+View site @: https://samaracodes.github.io/trutrack/
 
 # Getting Started with Create React App
 
