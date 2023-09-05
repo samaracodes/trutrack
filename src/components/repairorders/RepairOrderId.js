@@ -50,9 +50,9 @@ const RepairOrderId = ({ onDeleteRO }) => {
                                 <p class="text-muted mb-1">Miles: {roItem.carMileage}</p>
                                 <p class="text-muted mb-1">Plate#: {roItem.carPlateNumber}</p>
 
-                                {/* <Link to={`/repair-orders/${id}/edit`}type="submit" class="btn btn-primary mt-3 me-2" >Edit</Link>
+                                <Link to={`/repair-orders/${id}/edit`}type="submit" class="btn btn-primary mt-3 me-2" >Edit</Link>
 
-                                <Link type="submit" class="btn btn-outline-danger mt-3" onClick={handleDeleteClick}>Delete</Link> */}
+                                <Link type="submit" class="btn btn-outline-danger mt-3" onClick={handleDeleteClick}>Delete</Link>
 
                             </div>
                         </div>
