@@ -41,8 +41,6 @@ const CustomerItem = () => {
                                 <p class="text-muted mb-1">Miles: {customer.vehicleInfo.mileage}</p>
                                 <p class="text-muted mb-1">Plate#: {customer.vehicleInfo.plateNumber}</p>
 
-                                <button class="btn btn-primary mt-3 me-2">Edit</button>
-                                <button class="btn btn-outline-danger mt-3">Delete</button>
                             </div>
                         </div>
                     </div>
@@ -97,12 +95,7 @@ const CustomerItem = () => {
                 </div>
                 
                 <hr/>
-                
-                <div class="row">
-                <div class="col-lg-12 text-center mb-3">
-                    <button type="submit" class="col-sm-3 btn btn-sm btn-primary">Edit</button>
-                    </div>
-                </div>
+
 
                 </div>
                 </div>
