@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/trutrack/static/css/main.6de75f73.css",
-    "main.js": "/trutrack/static/js/main.25ed9fa1.js",
+    "main.js": "/trutrack/static/js/main.b1cdeae9.js",
     "static/js/787.5368c2b6.chunk.js": "/trutrack/static/js/787.5368c2b6.chunk.js",
     "index.html": "/trutrack/index.html",
     "main.6de75f73.css.map": "/trutrack/static/css/main.6de75f73.css.map",
-    "main.25ed9fa1.js.map": "/trutrack/static/js/main.25ed9fa1.js.map",
+    "main.b1cdeae9.js.map": "/trutrack/static/js/main.b1cdeae9.js.map",
     "787.5368c2b6.chunk.js.map": "/trutrack/static/js/787.5368c2b6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6de75f73.css",
-    "static/js/main.25ed9fa1.js"
+    "static/js/main.b1cdeae9.js"
   ]
 }
