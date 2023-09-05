@@ -57,7 +57,7 @@ const RepairOrderForm = ({ onAddRO }) => {
     
 
         //Add POST fetch request
-        fetch("http://localhost:3001/repair-orders", configObj)
+        fetch("https://trutrack-backend.onrender.com/repair-orders", configObj)
           .then((res) => res.json())
           .then((newRO) => {
             if (newRO) {

@@ -9,7 +9,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
     const navigate = useNavigate(0)
 
     useEffect(() => {
-        fetch(`http://localhost:3001/repair-orders/${id}`)
+        fetch(`https://trutrack-backend.onrender.com/repair-orders/${id}`)
         .then((response) => response.json())
         .then((roItem) => {
             setRoItem(roItem);
@@ -21,7 +21,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
 
 
     const handleDeleteClick = () => {
-        fetch(`http://localhost:3001/repair-orders/${id}`, {
+        fetch(`https://trutrack-backend.onrender.com/repair-orders/${id}`, {
             method: "DELETE",
         })
             .then((resp) => onDeleteRO(roItem))
@@ -42,7 +42,7 @@ const RepairOrderId = ({ onDeleteRO }) => {
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center">
-                            <img src="../f80m3.webp" alt="Admin" width="220"/>
+                            <img src="./f80m3.webp" alt="Admin" width="220"/>
                             <div class="mt-3">
                                 <h4 className="border-bottom">{roItem.customerName}</h4>
                                 <p class="text-muted mb-1">{roItem.carYear} {roItem.carMake} {roItem.carModel}</p>

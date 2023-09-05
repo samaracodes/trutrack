@@ -8,7 +8,7 @@ const CustomerItem = () => {
     const [isLoaded, setIsLoaded] = useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:3001/customers/${id}`)
+        fetch(`https://trutrack-backend.onrender.com/customers/${id}`)
         .then((response) => response.json())
         .then((data) => {
             setCustomer(data);
@@ -33,7 +33,7 @@ const CustomerItem = () => {
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center">
-                            <img src="../f80m3.webp" alt="Admin" width="220"/>
+                            <img src="./f80m3.webp" alt="Admin" width="220"/>
                             <div class="mt-3">
                                 <h4 className="border-bottom">{customer.customerInfo.name}</h4>
                                 <p class="text-muted mb-1">{customer.vehicleInfo.year} {customer.vehicleInfo.make} {customer.vehicleInfo.model}</p>
