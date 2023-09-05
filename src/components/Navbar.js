@@ -6,7 +6,7 @@ const Navbar = () => {
             <nav className="navbar navbar-expand-md navbar-light bg-light">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="#/trutrack">
-                        <img src="public/brand-logo-trnsp.png" alt="truTrack brand logo" className="brand-logo d-inline-block align-text-top"/>
+                        <img src="./brand-logo-trnsp.png" alt="truTrack brand logo" className="brand-logo d-inline-block align-text-top"/>
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
